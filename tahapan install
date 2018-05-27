@@ -1,0 +1,11 @@
+tahapan instal
+
+1. ikutin tahapan install go
+2. ikutin tahapan install sparrc
+3. ikutin tahapan install broker mqtt
+4. install package paho for go MQTT: go get github.com/eclipse/paho.mqtt.golang
+
+5. buka 2 terminal
+	a. terminal ke 1 buat run file PingMQTT.go, janga lupa untuk nge run ini rekan-rekan perlu masuk ke root dulu
+	b. terminal ke 2 buart ngeliat data yang dikirim, example: mosquitto_sub -h test.mosquitto.org -t "BIR/ATP"
+

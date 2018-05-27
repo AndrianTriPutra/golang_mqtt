@@ -1,0 +1,39 @@
+instal broker MQTT mosquito
+
+0.open your terminal
+1.sudo wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+2.sudo apt-key add mosquitto-repo.gpg.key
+3.cd /etc/apt/sources.list.d/
+4.karena saya pake os raspi yang vaian stretch maka
+sudo wget http://repo.mosquitto.org/debian/mosquitto-stretch.list
+5.sudo apt-get update
+6.sudo apt-get install mosquitto
+7.sudo apt-get install mosquitto mosquitto-clients
+8.sudo nano /etc/mosquitto/mosquitto.conf
+9.edit sedikit confignya seperti berikut
+============================================
+# Place your local configuration in /etc/mosquitto/conf.d/
+#
+# A full description of the configuration file is at
+# /usr/share/doc/mosquitto/examples/mosquitto.conf.example
+ 
+pid_file /var/run/mosquitto.pid
+ 
+persistence true
+persistence_location /var/lib/mosquitto/
+ 
+# Save all log in file
+log_dest file /var/log/mosquitto/mosquitto.log
+log_type all
+log_timestamp true
+ 
+include_dir /etc/mosquitto/conf.d
+============================================
+10. tes brokernya dengan buka 2 terminal
+	a. terminal ke 1 gunakan command ini: mosquitto_sub -d -t 'test-mosquitto'
+	b. terminal ke 2 gunakan command ini: mosquitto_pub -d -t 'test-mosquitto' -m 'This is a test message'
+11.selamat bersenang-senang
+
+referensi:
+https://theembeddedlab.com/tutorials/install-mosquitto-on-a-raspberry-pi/
+http://www.switchdoc.com/2016/02/tutorial-installing-and-testing-mosquitto-mqtt-on-raspberry-pi/
