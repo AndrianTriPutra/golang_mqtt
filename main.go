@@ -34,11 +34,12 @@ func main() {
 }
 func ConnectMqtt() {
 	broker := "broker.hivemq.com:1883" //"broker.emqx.io:1883" //"test.mosquitto.org:1883"
-	user := "manggis"
+	//user := " "
 	//pass := " "
 
+	myid := "manggis"
 	dns = "tcp://" + broker
-	clientid = "gondril/" + user
+	clientid = "gondril/" + myid
 
 	opts = MQTT.NewClientOptions()
 	opts.AddBroker(dns).SetClientID(clientid)
@@ -52,7 +53,7 @@ func ConnectMqtt() {
 	opts.SetDefaultPublishHandler(messagePubHandler)
 	opts.OnConnect = connectHandler
 	opts.OnConnectionLost = connectLostHandler
-	opts.SetWill(user+"/wills", "good-bye!", 0, true)
+	opts.SetWill(myid+"/wills", "good-bye!", 0, true)
 
 	client = MQTT.NewClient(opts)
 	tokenConn := client.Connect()
