@@ -1,2 +1,2 @@
-# go_ping_MQTT
-dalam tutorial ini saya akan menjelaskan tahapan instal golang,instal mosquito, instal package sparrc dan paho. Dan menggabungkan semuanya
+# example golang mqtt
+dalam case kali ini, saya coba memeberikan contoh pengunnan mqtt dengan golang, baik publish maupun subs serta handler message yg diubs
