@@ -80,9 +80,9 @@ func mysubscribe() {
 	TopicsubConf = topic
 	tokenSubsConf := client.Subscribe(TopicsubConf, 1, messagePubHandler)
 	if tokenSubsConf.WaitTimeout(5*time.Second) && tokenSubsConf.Error() != nil {
-		//printWarning("SubsConf on subscriber Err")
+		fmt.Println("SubsConf on subscriber Err")
 	} else {
-		//printNotif("SubsConf on subscriber succes")
+		fmt.Println("SubsConf on subscriber succes")
 	}
 }
 
