@@ -79,7 +79,7 @@ var connectLostHandler MQTT.ConnectionLostHandler = func(client MQTT.Client, err
 
 func mysubscribe() {
 	TopicsubConf = topic
-	tokenSubsConf := client.Subscribe(TopicsubConf, 0, messagePubHandler)
+	tokenSubsConf := client.Subscribe(TopicsubConf, 1, messagePubHandler)
 	if tokenSubsConf.WaitTimeout(5*time.Second) && tokenSubsConf.Error() != nil {
 		//printWarning("SubsConf on subscriber Err")
 	} else {
@@ -88,7 +88,7 @@ func mysubscribe() {
 }
 
 func publish_packet(topic, message string) {
-	Sending := client.Publish(topic, 1, true, message)
+	Sending := client.Publish(topic, 1, false, message)
 	if Sending.WaitTimeout(3*time.Second) != true {
 		log.Printf("send %s failed", topic)
 		fmt.Println()
