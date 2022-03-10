@@ -104,9 +104,7 @@ func get_time() string {
 	loc, _ := time.LoadLocation("Asia/Jakarta")
 	timeutcplus := time.Now().In(loc)
 
-	hhmmssplus := fmt.Sprintf("%02d:%02d:%02d", timeutcplus.Hour(), timeutcplus.Minute(), timeutcplus.Second())
-	yymmddplus := fmt.Sprintf("%02d/%02d/%02d", timeutcplus.Day(), timeutcplus.Month(), timeutcplus.Year())
-	timestamp := hhmmssplus + " " + yymmddplus
+	timestamp = timeutcplus.Format(time.RFC3339)
 	//log.Printf("timestamp:%s", timestamp)
 	return timestamp
 }
