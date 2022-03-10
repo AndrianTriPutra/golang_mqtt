@@ -16,7 +16,6 @@ var (
 	clientid     string
 	connection   bool
 	TopicsubConf string
-	user         = "kecapi/manggis"
 	topic        = "kecapi/test"
 )
 
@@ -35,7 +34,7 @@ func main() {
 }
 func ConnectMqtt() {
 	broker := "broker.hivemq.com:1883" //"broker.emqx.io:1883" //"test.mosquitto.org:1883"
-	//user := " "
+	user := "manggis"
 	//pass := " "
 
 	dns = "tcp://" + broker
